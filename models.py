@@ -102,7 +102,7 @@ class Classifier(nn.Module):
 
     def forward(self, x):
         latent = self.fc(x)
-        output = F.softmax(self.fc(latent), dim=1)
+        output = F.sigmoid(self.fc(latent))
         return latent, output
 
 
