@@ -82,12 +82,12 @@ options = dict(
     batch_size=128,
     workers=4,
     num_epochs=100,
-    train_dir="/home/heonsong/Disk2/Dataset/PHD08/phd08_512_split/train",
-    val_dir="/home/heonsong/Disk2/Dataset/PHD08/phd08_512_split/val",
-    test_dir="/home/heonsong/Disk2/Dataset/PHD08/phd08_2350_split/test",
+    train_dir="/workspace/PHD08/phd08_512_split/train",
+    val_dir="/workspace/PHD08/phd08_512_split/val",
+    test_dir="/workspace/PHD08/phd08_2350_split/test",
     # model setting
-    name="Normal_512",
-    mode="Normal",  # Normal, IR, or LR
+    name="LR_512",
+    mode="LR",  # Normal, IR, or LR
     hidden_dim=512,
     addition_dim=128,
     context_dim=len(CHOSUNG_LIST) + len(JUNGSUNG_LIST) + len(JONGSUNG_LIST),
@@ -98,6 +98,6 @@ options = dict(
     cat_rate=1.0,
     recon_rate=1.0,
     latent_rate=1.0,
-    lr_cat__rate=1e-3,
+    lr_cat_rate=1e-3,
     lr_latent_rate=1e-3,
 )

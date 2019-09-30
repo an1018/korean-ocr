@@ -95,14 +95,14 @@ class Embedder(nn.Module):
 class Classifier(nn.Module):
     def __init__(self, hidden_dim, context_dim):
         super(Classifier, self).__init__()
-        self.fc = nn.Sequential(
+        self.fc1 = nn.Sequential(
             nn.Linear(1024, hidden_dim), nn.BatchNorm1d(hidden_dim), nn.ReLU()
         )
-        self.fc = nn.Linear(hidden_dim, context_dim)
+        self.fc2 = nn.Linear(hidden_dim, context_dim)
 
     def forward(self, x):
-        latent = self.fc(x)
-        output = F.sigmoid(self.fc(latent))
+        latent = self.fc1(x)
+        output = torch.sigmoid(self.fc2(latent))
         return latent, output
 
 

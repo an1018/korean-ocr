@@ -135,9 +135,11 @@ def train_model(
                 cat_loss = 0
                 recon_loss = 0
                 latent_loss = 0
+                ir_loss = 0
                 orth_loss = 0
                 lr_cat_loss = 0
                 lr_latent_loss = 0
+                lr_loss = 0
 
                 # forward
                 # track history if only in train
@@ -235,15 +237,15 @@ def train_model(
                     "%s/Orth_Loss" % phase, float(orth_loss), phase_iters[phase] + n
                 )
                 writer.add_scalar(
+                    "%s/LR_Loss" % phase, float(lr_loss), phase_iters[phase] + n
+                )
+                writer.add_scalar(
                     "%s/LR_Cat_Loss" % phase, float(lr_cat_loss), phase_iters[phase] + n
                 )
                 writer.add_scalar(
                     "%s/LR_Latent_Loss" % phase,
                     float(lr_latent_loss),
                     phase_iters[phase] + n,
-                )
-                writer.add_scalar(
-                    "%s/LR_Loss" % phase, float(lr_loss), phase_iters[phase] + n
                 )
                 writer.add_scalar("%s/Accuracy" % phase, acc, phase_iters[phase] + n)
                 if n % display_iter == 0:
